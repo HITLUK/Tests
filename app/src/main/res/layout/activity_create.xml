@@ -18,12 +18,12 @@
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
-        android:id="@+id/add"
-        android:src="@drawable/ic_add"
         android:layout_margin="12dp"
-        />
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_launcher_background" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,26 +4,118 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateActivity">
+    tools:context=".AddActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <ListView
-            android:id="@+id/container"
+        <EditText
+            android:id="@+id/inputName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" />
-    </ScrollView>
+            android:layout_height="wrap_content"
+            android:layout_margin="32dp"
+            android:hint="question"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:id="@+id/add"
-        android:src="@drawable/ic_add"
-        android:layout_margin="12dp"
-        />
+        <EditText
+            android:id="@+id/ans1"
+            android:layout_width="318dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Answer 1"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+        <EditText
+            android:id="@+id/ans2"
+            android:layout_width="318dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Answer 2"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+        <EditText
+            android:id="@+id/ans3"
+            android:layout_width="318dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Answer 3"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+        <EditText
+            android:id="@+id/ans4"
+            android:layout_width="318dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Answer 4"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Right answer"
+            android:textSize="30dp"
+            android:layout_gravity="center"></TextView>
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="1" />
+
+            <RadioButton
+                android:id="@+id/radio_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="2" />
+
+            <RadioButton
+                android:id="@+id/radio_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="3" />
+            <RadioButton
+                android:id="@+id/radio_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="false"
+                android:text="4" />
+        </RadioGroup>
+        <EditText
+            android:id="@+id/basl"
+            android:layout_width="318dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Колличество баллов"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_add"
+            android:text="add"
+            tools:ignore="SpeakableTextPresentCheck" />
+    </LinearLayout>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
