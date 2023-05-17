@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/inputName"
+            android:id="@+id/inputQuest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="32dp"
@@ -101,12 +101,12 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:hint="Колличество баллов"
-            android:inputType="textPersonName"
+            android:inputType="number"
             android:minHeight="48dp" />
 
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add"
+            android:id="@+id/compl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"

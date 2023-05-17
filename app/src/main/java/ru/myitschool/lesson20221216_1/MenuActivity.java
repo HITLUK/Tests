@@ -2,9 +2,11 @@ package ru.myitschool.lesson20221216_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.ContentInfo;
 import android.view.View;
 
 import ru.myitschool.lesson20221216_1.databinding.ActivityMenuBinding;
@@ -12,6 +14,10 @@ import ru.myitschool.lesson20221216_1.databinding.ActivityMenuBinding;
 public class MenuActivity extends AppCompatActivity {
     private ActivityMenuBinding binding;
     private PrefsManager prefsManager,prefsManager1;
+
+    public static Intent getInstance(Context context) {
+        return new Intent(context, MenuActivity.class);
+    }
 
 
     @Override

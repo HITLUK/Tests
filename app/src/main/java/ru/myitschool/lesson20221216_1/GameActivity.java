@@ -79,14 +79,14 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setQuestionState(int stepNumber) {
-        Quest.Question question = quest.getQuestion(stepNumber);
-        binding.description.setText(question.getDescription());
+        Question question = quest.getQuestion(stepNumber);
+        binding.description.setText(question.getName());
         fillButton(question.getAnswers());
     }
 
-    private void fillButton(Quest.Question.Answers[] answers) {
+    private void fillButton(Answers[] answers) {
         binding.buttons.removeAllViews();
-        for (Quest.Question.Answers answer : answers) {
+        for (Answers answer : answers) {
             ItemButtonBinding buttonBinding = ItemButtonBinding.inflate(getLayoutInflater(),
                     binding.buttons,
                     false);
@@ -99,7 +99,7 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    private void goNext(Quest.Question.Answers answer) {
+    private void goNext(Answers answer) {
         quest.addScore(answer.getScore());
         initQuestion(answer.getNextStep());
 

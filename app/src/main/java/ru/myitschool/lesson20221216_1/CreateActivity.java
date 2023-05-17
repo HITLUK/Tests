@@ -6,28 +6,32 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ru.myitschool.lesson20221216_1.databinding.ActivityGameBinding;
-import ru.myitschool.lesson20221216_1.databinding.ItemButtonBinding;
+import ru.myitschool.lesson20221216_1.databinding.ActivityCreateBinding;
+import ru.myitschool.lesson20221216_1.databinding.ItemUserBinding;
 
 public class CreateActivity extends AppCompatActivity {
-    private ActivityGameBinding binding;
-    private final Quest quest = new Quest();
-    private PrefsManager prefsManager;
-    private PrefsManager prefsManager1;
-    static int count=0;
+    private ActivityCreateBinding binding;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityGameBinding.inflate(getLayoutInflater());
+        binding = ActivityCreateBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        prefsManager = new PrefsManager(getSharedPreferences(PrefsManager.NAME, MODE_PRIVATE));
-        prefsManager1 = new PrefsManager(getSharedPreferences(PrefsManager.COUNT, MODE_PRIVATE));
-        Quest quest = new Quest();
+        filllist();
+        binding.add.setOnClickListener(view -> startActivity(AddActivity.getInstance(this)));
+        binding.stop.setOnClickListener(view -> startActivity(MenuActivity.getInstance(this)));
     }
-
     public static Intent getInstance(Context context) {
         return new Intent(context, CreateActivity.class);
     }
-
+   public void filllist(){
+for(Item item : Reposit.reposit.getItems()) {
+    Unit unit = (Unit) item;
+    ItemUserBinding userBinding = ItemUserBinding.inflate(getLayoutInflater());
+    userBinding.name.setText(unit.getName());
+    binding.container.addView(userBinding.getRoot());
+}
+    }
 }

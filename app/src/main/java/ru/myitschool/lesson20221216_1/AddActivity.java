@@ -3,32 +3,72 @@ package ru.myitschool.lesson20221216_1;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import ru.myitschool.lesson20221216_1.databinding.ActivityGameBinding;
+import ru.myitschool.lesson20221216_1.databinding.ActivityAddBinding;
+import ru.myitschool.lesson20221216_1.databinding.ItemUserBinding;
 
 public class AddActivity extends AppCompatActivity {
-    private ActivityGameBinding binding;
-    private final Quest quest = new Quest();
+    private ActivityAddBinding binding;
     private PrefsManager prefsManager;
     private PrefsManager prefsManager1;
     static int count=0;
+    private int sc1,sc2,sc3,sc4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityGameBinding.inflate(getLayoutInflater());
+        binding = ActivityAddBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        sc1 = 0;
+        sc2 = 0;
+        sc3 = 0;
+        sc4 = 0;
         prefsManager = new PrefsManager(getSharedPreferences(PrefsManager.NAME, MODE_PRIVATE));
         prefsManager1 = new PrefsManager(getSharedPreferences(PrefsManager.COUNT, MODE_PRIVATE));
-        Quest quest = new Quest();
+        binding.compl.setOnClickListener(view -> {
+            addquest();
+            startActivity(CreateActivity.getInstance(this));
+        });
     }
-
     public static Intent getInstance(Context context) {
         return new Intent(context, AddActivity.class);
     }
-
+    private void clearInput() {
+        binding.inputQuest.setText("");
+        binding.ans1.setText("");
+        binding.ans2.setText("");
+        binding.ans3.setText("");
+        binding.ans4.setText("");
+        binding.inputQuest.clearFocus();
+        binding.ans1.clearFocus();
+        binding.ans2.clearFocus();
+        binding.ans3.clearFocus();
+        binding.ans4.clearFocus();
+        binding.radioGroup.clearCheck();
+    }
+public void addquest() {
+        if (binding.radio1.isChecked()) { sc1 =binding.basl.getInputType();
+        }
+    if (binding.radio2.isChecked()) { sc2 =binding.basl.getInputType();
+    }
+    if (binding.radio3.isChecked()) { sc3 =binding.basl.getInputType();
+    }
+    if (binding.radio4.isChecked()) { sc4 =binding.basl.getInputType();
+    }
+String name = binding.inputQuest.getText().toString();
+Answers[] answers = new Answers[]{
+        new Answers(binding.ans1.getText().toString(), sc1, 1),
+        new Answers(binding.ans2.getText().toString(), sc2, 1),
+        new Answers(binding.ans3.getText().toString(), sc3, 1),
+        new Answers(binding.ans4.getText().toString(), sc4, 1)
+};
+Unit unit = new Question(name,answers);
+Reposit.reposit.addUnit(unit);
+clearInput();
+}
 }
