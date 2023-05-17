@@ -3,13 +3,10 @@ package ru.myitschool.lesson20221216_1;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import ru.myitschool.lesson20221216_1.databinding.ActivityAddBinding;
-import ru.myitschool.lesson20221216_1.databinding.ItemUserBinding;
 
 public class AddActivity extends AppCompatActivity {
     private ActivityAddBinding binding;
@@ -52,14 +49,15 @@ public class AddActivity extends AppCompatActivity {
         binding.radioGroup.clearCheck();
     }
 public void addquest() {
-        if (binding.radio1.isChecked()) { sc1 =binding.basl.getInputType();
+        if (binding.radio1.isChecked()) { sc1 =binding.balls.getInputType();
         }
-    if (binding.radio2.isChecked()) { sc2 =binding.basl.getInputType();
+    if (binding.radio2.isChecked()) { sc2 =binding.balls.getInputType();
     }
-    if (binding.radio3.isChecked()) { sc3 =binding.basl.getInputType();
+    if (binding.radio3.isChecked()) { sc3 =binding.balls.getInputType();
     }
-    if (binding.radio4.isChecked()) { sc4 =binding.basl.getInputType();
+    if (binding.radio4.isChecked()) { sc4 =binding.balls.getInputType();
     }
+    int bals = binding.balls.getInputType();
 String name = binding.inputQuest.getText().toString();
 Answers[] answers = new Answers[]{
         new Answers(binding.ans1.getText().toString(), sc1, 1),
@@ -67,7 +65,7 @@ Answers[] answers = new Answers[]{
         new Answers(binding.ans3.getText().toString(), sc3, 1),
         new Answers(binding.ans4.getText().toString(), sc4, 1)
 };
-Unit unit = new Question(name,answers);
+Unit unit = new Question(bals, name,answers);
 Reposit.reposit.addUnit(unit);
 clearInput();
 }

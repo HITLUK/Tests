@@ -2,33 +2,28 @@ package ru.myitschool.lesson20221216_1;
 
 import android.view.View;
 
-import com.google.android.material.snackbar.Snackbar;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Quest {
     private int score = 0;
     private int currentStep = 0;
 
-    private  Question[] questions = new Question[]{
-            new Question("Первый вопрос",
-                    new Answers[]{
-                            new Answers("+100 баллов", 100, 1),
-                            new Answers("+1000 баллов", 1000, -1)
-                    }),
-            new Question("Второй вопрос",
-                    new Answers[]{
-                            new Answers("-100 баллов", -1, 0),
-                            new Answers("-100 баллов", 50, 1),
-                            new Answers("-10 баллов", -10, -2)
-                    })
-            ,
-            new Question("Третий вопрос",
-                    new Answers[]{
-                            new Answers("-100 баллов", +100, 0),
-                            new Answers("-10 баллов", -10, -1)
-                    })
 
-    };
+    List<Unit> list = new ArrayList<>(Arrays.asList());
+public int getlenght(){
+    return list.size();
+}
+    public Question[] CreateTest() {
+        for (Item item : Reposit.reposit.getItems()) {
+            Unit unit = (Unit) item;
+            list.add(unit);
+        }
 
+        return list.toArray(new Question[0]);
+    }
+    private  Question[] questions = CreateTest();
 
     public void addScore(int score) {
         this.score += score;

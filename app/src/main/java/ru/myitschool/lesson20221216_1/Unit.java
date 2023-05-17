@@ -10,17 +10,21 @@ private int balls;
 public static int id;
 Answers[] answers;
 public Unit(){}
-    public Unit(String name, int balls, Answers[] answers) {
+
+    public Unit(int balls,String name, Answers[] answers) {
         this.name = name;
         this.balls = balls;
         this.answers = answers;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public int getBalls() {
         return balls;
     }

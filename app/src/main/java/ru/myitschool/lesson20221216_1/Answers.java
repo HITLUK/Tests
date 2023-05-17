@@ -4,7 +4,6 @@ public  class Answers {
     private final String name;
     private final int score;
     private final int nextStep;
-    private boolean istrue = false;
 
     public String getName() {
         return name;
