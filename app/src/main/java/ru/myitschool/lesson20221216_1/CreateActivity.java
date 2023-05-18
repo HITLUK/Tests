@@ -25,8 +25,7 @@ public static int edited = 0;
         filllist();
         binding.add.setOnClickListener(view -> startActivity(AddActivity.getInstance(this)));
         binding.edit.setOnClickListener(view -> {
-                    edited = Integer.parseInt(binding.edited.getText().toString());
-            Toast.makeText(this,Integer.toString(edited),Toast.LENGTH_LONG).show();
+                    edited = Integer.parseInt(binding.edited.getText().toString())-1;
                     startActivity(EditActivity.getInstance(this));
                 });
         binding.stop.setOnClickListener(view -> {

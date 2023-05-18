@@ -11,7 +11,7 @@ import ru.myitschool.lesson20221216_1.databinding.ActivityAddBinding;
 
 public class EditActivity extends AppCompatActivity {
     private ActivityAddBinding binding;
-    private int sc1,sc2,sc3,sc4,idthis;
+    public int sc1,sc2,sc3,sc4,idthis;
 
 
     @Override
@@ -23,6 +23,7 @@ public class EditActivity extends AppCompatActivity {
         sc2 = 0;
         sc3 = 0;
         sc4 = 0;
+        idthis=0;
 loadquest(Reposit.reposit.getUnit(CreateActivity.edited));
         binding.compl.setOnClickListener(view -> {
             editquest();
@@ -47,7 +48,7 @@ loadquest(Reposit.reposit.getUnit(CreateActivity.edited));
     }
     public void loadquest(Unit question){
         binding.inputQuest.setText(question.getName());
-        idthis = question.getId();
+        idthis = CreateActivity.edited;
         Answers[] may = question.getAnswers();
         int a = question.getBalls();
         binding.ans1.setText(may[0].getName());
@@ -78,7 +79,6 @@ loadquest(Reposit.reposit.getUnit(CreateActivity.edited));
         if (binding.radio4.isChecked()) { sc4 = Integer.parseInt(binding.balls.getText().toString());
         }
         int bals = Integer.parseInt(binding.balls.getText().toString());
-        int id = idthis;
         String name = binding.inputQuest.getText().toString();
         Answers[] answers = new Answers[]{
                 new Answers(binding.ans1.getText().toString(), sc1, 1),
@@ -86,8 +86,7 @@ loadquest(Reposit.reposit.getUnit(CreateActivity.edited));
                 new Answers(binding.ans3.getText().toString(), sc3, 1),
                 new Answers(binding.ans4.getText().toString(), sc4, 1)
         };
-        Unit unit = new Question(bals, name,answers,id);
-        Toast.makeText(this,Integer.toString(idthis),Toast.LENGTH_LONG).show();
+        Unit unit = new Question(bals, name,answers,idthis);
         Reposit.reposit.setUnit(unit,idthis);
         clearInput();
     }

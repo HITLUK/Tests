@@ -10,7 +10,7 @@ public class Reposit {
 
     private Item[] items = new Item[0];
 public Unit getUnit(int i) {
-    return (Unit) items[i-1];
+    return (Unit) items[i];
 }
 
     public Item[] getItems() {
@@ -18,7 +18,7 @@ public Unit getUnit(int i) {
     }
 public void setUnit(Item unit,int i) {setItem(unit,i);}
     public void setItem(Item item,int i) {
-        items[i-1] = item;
+        items[i] = item;
 
     }
 
