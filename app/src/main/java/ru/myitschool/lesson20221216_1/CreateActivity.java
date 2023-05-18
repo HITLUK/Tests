@@ -16,20 +16,28 @@ public class CreateActivity extends AppCompatActivity {
     private ActivityCreateBinding binding;
 public static int idquestion = 0;
 public static int edited = 0;
+public boolean iscr;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityCreateBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        iscr = false;
         filllist();
         binding.add.setOnClickListener(view -> startActivity(AddActivity.getInstance(this)));
         binding.edit.setOnClickListener(view -> {
-                    edited = Integer.parseInt(binding.edited.getText().toString())-1;
-                    startActivity(EditActivity.getInstance(this));
-                });
+            if (binding.edited.getText().toString().isEmpty()) {
+                Toast.makeText(this, "Вы не выбрали вопрос", Toast.LENGTH_SHORT).show();
+            } else {
+                edited = Integer.parseInt(binding.edited.getText().toString()) - 1;
+                startActivity(EditActivity.getInstance(this));
+            }
+            });
         binding.stop.setOnClickListener(view -> {
-            MenuActivity.iscreated = true;
+            if (iscr) {
+                MenuActivity.iscreated = true;
+            }
             startActivity(MenuActivity.getInstance(this));
         });
     }
@@ -41,6 +49,7 @@ public static int edited = 0;
        binding.container.removeAllViews();
        int ed = 1;
 for(Item item : Reposit.reposit.getItems()) {
+    iscr = true;
     Unit unit = (Unit) item;
     ItemUserBinding userBinding = ItemUserBinding.inflate(getLayoutInflater());
     userBinding.idquestion.setText(Integer.toString(ed));

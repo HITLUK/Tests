@@ -9,6 +9,12 @@ import android.os.Bundle;
 import android.view.ContentInfo;
 import android.view.View;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.Buffer;
+
 import ru.myitschool.lesson20221216_1.databinding.ActivityMenuBinding;
 
 public class MenuActivity extends AppCompatActivity {
@@ -27,7 +33,6 @@ public static boolean isIscreated() {
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
-
 
         binding.play.setOnClickListener(view -> {
             startActivity(GameActivity.getInstance(this));

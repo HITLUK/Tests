@@ -6,6 +6,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 import ru.myitschool.lesson20221216_1.databinding.ActivityGameBinding;
 import ru.myitschool.lesson20221216_1.databinding.ItemButtonBinding;
 
@@ -13,6 +18,7 @@ public class GameActivity extends AppCompatActivity {
     private ActivityGameBinding binding;
     private final Quest quest = new Quest();
     static int count=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +33,15 @@ count = 0;
     }
     public void initQuestion(int stepNumber) {
         count++;
-if(quest.getlenght() == count) {
-    setPositiveState();
-} else {
-    setQuestionState(stepNumber);
-}
+        if(quest.getlenght()==1) {
+            setNegativeState();
+        } else {
+            if (quest.getlenght() == count) {
+                setPositiveState();
+            } else {
+                setQuestionState(stepNumber);
+            }
+        }
     }
     private void setPositiveState() {
         if(MenuActivity.iscreated) {
@@ -41,7 +51,10 @@ if(quest.getlenght() == count) {
         }
         fillCloseButton();
     }
-
+    private void setNegativeState() {
+            binding.description.setText("Добавьте больше вопросов");
+        fillCloseButton();
+    }
 
 
 
