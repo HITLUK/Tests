@@ -8,14 +8,16 @@ public abstract class Unit implements Item {
 private String name;
 private int balls;
 public static int id;
-Answers[] answers;
+ public static Answers[] answers;
 public Unit(){}
 
-    public Unit(int balls,String name, Answers[] answers) {
+    public Unit(int balls,String name, Answers[] answers,int id) {
         this.name = name;
         this.balls = balls;
-        this.answers = answers;
+        Unit.answers = answers;
+        this.id = id;
     }
+
 
     public String getName() {
         return name;
@@ -31,7 +33,7 @@ public Unit(){}
     public void setBalls(int balls) {
         this.balls = balls;
     }
-    public static int getId() {
+    public int getId() {
         return id;
     }
     public static void setId(int id) {

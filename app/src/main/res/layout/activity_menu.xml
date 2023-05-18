@@ -15,13 +15,15 @@
         android:id="@+id/maker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quester"
+        android:text="Cesting"
+        android:textColor="#FF3700B3"
+        android:textSize="50dp"
         tools:ignore="InvalidId" />
     <Button
         android:layout_margin="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="play"
+        android:text="start"
         android:id="@+id/play"/>
     <Button
         android:layout_margin="16dp"

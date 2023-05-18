@@ -49,15 +49,18 @@ public class AddActivity extends AppCompatActivity {
         binding.radioGroup.clearCheck();
     }
 public void addquest() {
-        if (binding.radio1.isChecked()) { sc1 =binding.balls.getInputType();
+        CreateActivity.setIDquestion();
+        if (binding.radio1.isChecked()) {
+            sc1 = Integer.parseInt(binding.balls.getText().toString());
         }
-    if (binding.radio2.isChecked()) { sc2 =binding.balls.getInputType();
+    if (binding.radio2.isChecked()) { sc2 = Integer.parseInt(binding.balls.getText().toString());
     }
-    if (binding.radio3.isChecked()) { sc3 =binding.balls.getInputType();
+    if (binding.radio3.isChecked()) { sc3 = Integer.parseInt(binding.balls.getText().toString());
     }
-    if (binding.radio4.isChecked()) { sc4 =binding.balls.getInputType();
+    if (binding.radio4.isChecked()) { sc4 = Integer.parseInt(binding.balls.getText().toString());
     }
-    int bals = binding.balls.getInputType();
+    int bals = Integer.parseInt(binding.balls.getText().toString());
+    int id = CreateActivity.getIDquestion();
 String name = binding.inputQuest.getText().toString();
 Answers[] answers = new Answers[]{
         new Answers(binding.ans1.getText().toString(), sc1, 1),
@@ -65,7 +68,7 @@ Answers[] answers = new Answers[]{
         new Answers(binding.ans3.getText().toString(), sc3, 1),
         new Answers(binding.ans4.getText().toString(), sc4, 1)
 };
-Unit unit = new Question(bals, name,answers);
+Unit unit = new Question(bals, name,answers,id);
 Reposit.reposit.addUnit(unit);
 clearInput();
 }

@@ -13,20 +13,20 @@ import ru.myitschool.lesson20221216_1.databinding.ActivityMenuBinding;
 
 public class MenuActivity extends AppCompatActivity {
     private ActivityMenuBinding binding;
-    private PrefsManager prefsManager,prefsManager1;
+    public static boolean iscreated = false;
 
     public static Intent getInstance(Context context) {
         return new Intent(context, MenuActivity.class);
     }
-
+public static boolean isIscreated() {
+        return iscreated;
+}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
-        prefsManager = new PrefsManager(getSharedPreferences(PrefsManager.NAME, MODE_PRIVATE));
-       prefsManager1 = new PrefsManager(getSharedPreferences(PrefsManager.COUNT, MODE_PRIVATE));
 
 
         binding.play.setOnClickListener(view -> {

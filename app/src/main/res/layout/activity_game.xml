@@ -8,13 +8,7 @@
     android:orientation="vertical"
     tools:context=".GameActivity">
 
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Score"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,7 +18,7 @@
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="32dp"
             android:maxLines="8"
             tools:text="@tools:sample/lorem/random" />
     </ScrollView>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddActivity">
+    tools:context=".EditActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,8 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="32dp"
             android:hint="Вопрос"
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            />
 
         <EditText
             android:id="@+id/ans1"
@@ -46,7 +46,7 @@
             android:layout_width="318dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:hint="ответ 4"
+            android:hint="Ответ 4"
             android:minHeight="48dp" />
         <TextView
             android:layout_width="wrap_content"

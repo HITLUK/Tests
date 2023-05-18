@@ -1,5 +1,6 @@
 package ru.myitschool.lesson20221216_1;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Reposit {
@@ -9,12 +10,18 @@ public class Reposit {
     }
 
     private Item[] items = new Item[0];
-
+public Unit getUnit(int i) {
+    return (Unit) items[i-1];
+}
 
     public Item[] getItems() {
         return items;
     }
+public void setUnit(Item unit,int i) {setItem(unit,i);}
+    public void setItem(Item item,int i) {
+        items[i-1] = item;
 
+    }
 
     private void addItem(Item item) {
         items = Arrays.copyOf(items, items.length + 1);

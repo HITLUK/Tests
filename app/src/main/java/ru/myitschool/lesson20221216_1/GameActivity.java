@@ -24,7 +24,7 @@ public class GameActivity extends AppCompatActivity {
         prefsManager = new PrefsManager(getSharedPreferences(PrefsManager.NAME, MODE_PRIVATE));
         prefsManager1 = new PrefsManager(getSharedPreferences(PrefsManager.COUNT, MODE_PRIVATE));
         initQuestion(0);
-
+count = 0;
     }
 
     public static Intent getInstance(Context context) {
@@ -33,8 +33,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void initQuestion(int stepNumber) {
         count++;
-        binding.score.setText(String.format("SCORE: %d", quest.getScore()));
-if(quest.getlenght() == count-1) {
+if(quest.getlenght() == count) {
     setPositiveState();
 } else {
     setQuestionState(stepNumber);
@@ -45,7 +44,11 @@ if(quest.getlenght() == count-1) {
     }
 
     private void setPositiveState() {
-        binding.description.setText("Вы завершили прохождение теста");
+        if(MenuActivity.iscreated) {
+            binding.description.setText("Вы завершили прохождение теста.\nВаш результат- " + quest.getScore() + "/" + quest.getMaxscore() + " (" + (float) quest.getScore() / quest.getMaxscore() * 100 + "%)");
+        } else {
+            binding.description.setText("Вы завершили прохождение теста.\nВаш результат- " + quest.getScore() + "/3 (" + (float) quest.getScore() / 3 * 100 + "%)");
+        }
         fillCloseButton();
         writeBestScore();
     }

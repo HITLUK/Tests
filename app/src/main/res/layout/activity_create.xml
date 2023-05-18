@@ -22,7 +22,7 @@
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
+        android:layout_gravity="end"
         android:layout_margin="12dp"
         android:contentDescription="@string/app_name"
         android:src="@android:drawable/ic_input_add" />
@@ -31,9 +31,26 @@
         android:id="@+id/stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        android:layout_gravity="end|bottom"
         android:layout_margin="12dp"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_add" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/edit"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="12dp"
+        android:contentDescription="@string/app_name"
+        android:src="@android:drawable/ic_menu_edit" />
+
+    <EditText
+        android:id="@+id/edited"
+        android:layout_width="115dp"
+        android:layout_height="67dp"
+        android:layout_gravity="bottom"
+        android:layout_margin="8dp"
+        android:hint="Номер вопроса"
+        android:minHeight="48dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

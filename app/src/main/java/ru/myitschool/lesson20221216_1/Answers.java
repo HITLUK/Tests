@@ -1,7 +1,7 @@
 package ru.myitschool.lesson20221216_1;
 
 public  class Answers {
-    private final String name;
+    private String name;
     private final int score;
     private final int nextStep;
 
