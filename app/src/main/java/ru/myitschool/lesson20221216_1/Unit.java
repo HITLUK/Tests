@@ -15,35 +15,24 @@ public Unit(){}
         this.name = name;
         this.balls = balls;
         Unit.answers = answers;
-        this.id = id;
+        Unit.id = id;
     }
 
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public int getBalls() {
         return balls;
-    }
-    public void setBalls(int balls) {
-        this.balls = balls;
     }
     public int getId() {
         return id;
     }
-    public static void setId(int id) {
-        Unit.id = id;
-    }
     public Answers[] getAnswers() {
         return answers;
-    }
-    public void setAnswers(Answers[] answers) {
-        this.answers = answers;
     }
     public abstract String Speak();
     @Override

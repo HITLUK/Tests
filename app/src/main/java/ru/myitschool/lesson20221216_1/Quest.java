@@ -1,14 +1,11 @@
 package ru.myitschool.lesson20221216_1;
 
-import android.view.View;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Quest {
     private int score = 0;
-    private int currentStep = 0;
     private int maxscore = 0;
     private boolean iscreaded = MenuActivity.isIscreated();
     public int getMaxscore(){
@@ -33,34 +30,33 @@ public int getlenght() {
             return list.toArray(new Question[0]);
         } else {
             return new Question[]{
-                    new Question(1,"Первый вопрос",
+                    new Question(1,"Сколько всего материков на земле?",
                             new Answers[]{
-                                    new Answers("Правильный", 1, 1),
-                                    new Answers("Неправильный", 0, 1),
-                                    new Answers("Неправильный", 0, 1),
-                                    new Answers("Неправильный", 0, 1)
+                                    new Answers("4", 0, 1),
+                                    new Answers("5", 0, 1),
+                                    new Answers("6", 1, 1),
+                                    new Answers("7", 0, 1)
                             },1)
                     ,
-                    new Question(1,"Второй вопрос",
+                    new Question(1,"В древнегреческой мифологии Немезида была крылатой богиней",
                             new Answers[]{
-                                    new Answers("Неправильный", 0, 2),
-                                    new Answers("Неправильный", 0, 2),
-                                    new Answers("Неправильный", 0, 2),
-                                    new Answers("Правильный", 1, 2)
+                                    new Answers("Воды", 0, 2),
+                                    new Answers("Красоты", 0, 2),
+                                    new Answers("Победы", 0, 2),
+                                    new Answers("Возмездия", 1, 2)
                             },1)
                     ,
-                    new Question(1,"Третий вопрос",
+                    new Question(1,"Какое из этих слов пишется с НЕ слитно?",
                             new Answers[]{
-                                    new Answers("Неправильный", 0, 3),
-                                    new Answers("Неправильный", 0, 3),
-                                    new Answers("Правильный", 1, 3),
-                                    new Answers("Неправильный", 0, 3)
+                                    new Answers("(не)увидев", 0, 3),
+                                    new Answers("(не)нужно", 0, 3),
+                                    new Answers("(не)втерпеж", 1, 3),
+                                    new Answers("(не)спится", 0, 3)
                             },1)
             };
         }
     }
     private Question[] questions = CreateTest();
-
     public void addScore(int score) {
         this.score += score;
     }
@@ -74,11 +70,5 @@ public int getlenght() {
     public int getScore() {
         return score;
     }
-
-    public int getCurrentStep() {
-        return currentStep;
-    }
-
-
 
 }

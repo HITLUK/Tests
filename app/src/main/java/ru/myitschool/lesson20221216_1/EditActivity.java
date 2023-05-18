@@ -3,6 +3,7 @@ package ru.myitschool.lesson20221216_1;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -86,7 +87,8 @@ loadquest(Reposit.reposit.getUnit(CreateActivity.edited));
                 new Answers(binding.ans4.getText().toString(), sc4, 1)
         };
         Unit unit = new Question(bals, name,answers,id);
-        Reposit.reposit.setUnit(unit,id-1);
+        Toast.makeText(this,Integer.toString(idthis),Toast.LENGTH_LONG).show();
+        Reposit.reposit.setUnit(unit,idthis);
         clearInput();
     }
 }

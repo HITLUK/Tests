@@ -1,6 +1,5 @@
 package ru.myitschool.lesson20221216_1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Reposit {

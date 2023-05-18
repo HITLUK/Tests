@@ -10,9 +10,6 @@ import ru.myitschool.lesson20221216_1.databinding.ActivityAddBinding;
 
 public class AddActivity extends AppCompatActivity {
     private ActivityAddBinding binding;
-    private PrefsManager prefsManager;
-    private PrefsManager prefsManager1;
-    static int count=0;
     private int sc1,sc2,sc3,sc4;
 
 
@@ -25,8 +22,6 @@ public class AddActivity extends AppCompatActivity {
         sc2 = 0;
         sc3 = 0;
         sc4 = 0;
-        prefsManager = new PrefsManager(getSharedPreferences(PrefsManager.NAME, MODE_PRIVATE));
-        prefsManager1 = new PrefsManager(getSharedPreferences(PrefsManager.COUNT, MODE_PRIVATE));
         binding.compl.setOnClickListener(view -> {
             addquest();
             startActivity(CreateActivity.getInstance(this));

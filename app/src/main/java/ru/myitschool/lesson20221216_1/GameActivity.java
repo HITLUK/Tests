@@ -12,8 +12,6 @@ import ru.myitschool.lesson20221216_1.databinding.ItemButtonBinding;
 public class GameActivity extends AppCompatActivity {
     private ActivityGameBinding binding;
     private final Quest quest = new Quest();
-    private PrefsManager prefsManager;
-    private PrefsManager prefsManager1;
     static int count=0;
 
     @Override
@@ -21,16 +19,12 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityGameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        prefsManager = new PrefsManager(getSharedPreferences(PrefsManager.NAME, MODE_PRIVATE));
-        prefsManager1 = new PrefsManager(getSharedPreferences(PrefsManager.COUNT, MODE_PRIVATE));
         initQuestion(0);
 count = 0;
     }
-
     public static Intent getInstance(Context context) {
         return new Intent(context, GameActivity.class);
     }
-
     public void initQuestion(int stepNumber) {
         count++;
 if(quest.getlenght() == count) {
@@ -38,11 +32,7 @@ if(quest.getlenght() == count) {
 } else {
     setQuestionState(stepNumber);
 }
-
-
-
     }
-
     private void setPositiveState() {
         if(MenuActivity.iscreated) {
             binding.description.setText("Вы завершили прохождение теста.\nВаш результат- " + quest.getScore() + "/" + quest.getMaxscore() + " (" + (float) quest.getScore() / quest.getMaxscore() * 100 + "%)");
@@ -50,14 +40,9 @@ if(quest.getlenght() == count) {
             binding.description.setText("Вы завершили прохождение теста.\nВаш результат- " + quest.getScore() + "/3 (" + (float) quest.getScore() / 3 * 100 + "%)");
         }
         fillCloseButton();
-        writeBestScore();
     }
 
-    private void writeBestScore() {
-        prefsManager.setScore(Math.max(prefsManager.getScore(), quest.getScore()));
-        prefsManager1.setCount(count);
 
-    }
 
 
     private void fillCloseButton() {
@@ -90,14 +75,9 @@ if(quest.getlenght() == count) {
             });
             binding.buttons.addView(buttonBinding.getRoot());
         }
-
     }
-
     private void goNext(Answers answer) {
         quest.addScore(answer.getScore());
         initQuestion(answer.getNextStep());
-
     }
-
-
 }

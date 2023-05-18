@@ -1,19 +1,13 @@
 package ru.myitschool.lesson20221216_1;
 
-import static ru.myitschool.lesson20221216_1.Unit.id;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import ru.myitschool.lesson20221216_1.databinding.ActivityCreateBinding;
 import ru.myitschool.lesson20221216_1.databinding.ItemUserBinding;
