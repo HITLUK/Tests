@@ -26,6 +26,7 @@ public class GameActivity extends AppCompatActivity {
         binding = ActivityGameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         initQuestion(0);
+        binding.number.setText("1/"+quest.getlenght());
 count = 0;
     }
     public static Intent getInstance(Context context) {
@@ -44,6 +45,7 @@ count = 0;
         }
     }
     private void setPositiveState() {
+        binding.number.setText("");
         if(MenuActivity.iscreated) {
             binding.description.setText("Вы завершили прохождение теста.\nВаш результат- " + quest.getScore() + "/" + quest.getMaxscore() + " (" + (float) quest.getScore() / quest.getMaxscore() * 100 + "%)");
         } else {
@@ -71,6 +73,7 @@ count = 0;
     }
 
     private void setQuestionState(int stepNumber) {
+        binding.number.setText(stepNumber+1+"/"+quest.getlenght());
         Question question = quest.getQuestion(stepNumber);
         binding.description.setText(question.getName());
         fillButton(question.getAnswers());
@@ -79,14 +82,16 @@ count = 0;
     private void fillButton(Answers[] answers) {
         binding.buttons.removeAllViews();
         for (Answers answer : answers) {
-            ItemButtonBinding buttonBinding = ItemButtonBinding.inflate(getLayoutInflater(),
-                    binding.buttons,
-                    false);
-            buttonBinding.getRoot().setText(answer.getName());
-            buttonBinding.getRoot().setOnClickListener(v -> {
-                goNext(answer);
-            });
-            binding.buttons.addView(buttonBinding.getRoot());
+            if (answer.isIsreal()) {
+                ItemButtonBinding buttonBinding = ItemButtonBinding.inflate(getLayoutInflater(),
+                        binding.buttons,
+                        false);
+                buttonBinding.getRoot().setText(answer.getName());
+                buttonBinding.getRoot().setOnClickListener(v -> {
+                    goNext(answer);
+                });
+                binding.buttons.addView(buttonBinding.getRoot());
+            }
         }
     }
     private void goNext(Answers answer) {

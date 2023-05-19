@@ -4,6 +4,7 @@ public  class Answers {
     private String name;
     private final int score;
     private final int nextStep;
+    private final boolean isreal;
 
     public String getName() {
         return name;
@@ -17,9 +18,14 @@ public  class Answers {
         return nextStep;
     }
 
-    public Answers(String name, int score, int nextStep) {
+    public boolean isIsreal() {
+        return isreal;
+    }
+
+    public Answers(String name, int score, int nextStep, boolean isreal) {
         this.name = name;
         this.score = score;
         this.nextStep = nextStep;
+        this.isreal = isreal;
     }
 }

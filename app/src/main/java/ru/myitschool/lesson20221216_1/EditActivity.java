@@ -78,14 +78,18 @@ public class EditActivity extends AppCompatActivity {
     }
 
     public void editquest() {
+        boolean is1 = true;
+        boolean is2 = true;
+        boolean is3 = false;
+        boolean is4 = false;
         if (binding.ans1.getText().toString().isEmpty() ||
-                binding.ans2.getText().toString().isEmpty() ||
-                binding.ans3.getText().toString().isEmpty() ||
-                binding.ans4.getText().toString().isEmpty() ||
+                binding.ans2.getText().toString().isEmpty()  ||
                 (!binding.radio1.isChecked() && !binding.radio2.isChecked()
                         && !binding.radio2.isChecked() && !binding.radio4.isChecked()) || binding.inputQuest.getText().toString().isEmpty() || binding.balls.getText().toString().isEmpty()) {
             Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show();
         } else {
+            if (!binding.ans3.getText().toString().isEmpty()) {is3=true;}
+            if (!binding.ans4.getText().toString().isEmpty()) {is4=true;}
             isfull = true;
             if (binding.radio1.isChecked()) {
                 sc1 = Integer.parseInt(binding.balls.getText().toString());
@@ -102,10 +106,10 @@ public class EditActivity extends AppCompatActivity {
             int bals = Integer.parseInt(binding.balls.getText().toString());
             String name = binding.inputQuest.getText().toString();
             Answers[] answers = new Answers[]{
-                    new Answers(binding.ans1.getText().toString(), sc1, 1),
-                    new Answers(binding.ans2.getText().toString(), sc2, 1),
-                    new Answers(binding.ans3.getText().toString(), sc3, 1),
-                    new Answers(binding.ans4.getText().toString(), sc4, 1)
+                    new Answers(binding.ans1.getText().toString(), sc1, 1, is1),
+                    new Answers(binding.ans2.getText().toString(), sc2, 1, is2),
+                    new Answers(binding.ans3.getText().toString(), sc3, 1, is3),
+                    new Answers(binding.ans4.getText().toString(), sc4, 1, is4)
             };
             Unit unit = new Question(bals, name, answers, idthis);
             Reposit.reposit.setUnit(unit, idthis);

@@ -32,26 +32,26 @@ public int getlenght() {
             return new Question[]{
                     new Question(1,"Сколько всего материков на земле?",
                             new Answers[]{
-                                    new Answers("4", 0, 1),
-                                    new Answers("5", 0, 1),
-                                    new Answers("6", 1, 1),
-                                    new Answers("7", 0, 1)
+                                    new Answers("4", 0, 1, true),
+                                    new Answers("5", 0, 1, true),
+                                    new Answers("6", 1, 1, true),
+                                    new Answers("7", 0, 1, true)
                             },1)
                     ,
                     new Question(1,"В древнегреческой мифологии Немезида была крылатой богиней",
                             new Answers[]{
-                                    new Answers("Воды", 0, 2),
-                                    new Answers("Красоты", 0, 2),
-                                    new Answers("Победы", 0, 2),
-                                    new Answers("Возмездия", 1, 2)
+                                    new Answers("Воды", 0, 2, true),
+                                    new Answers("Красоты", 0, 2, true),
+                                    new Answers("Победы", 0, 2, true),
+                                    new Answers("Возмездия", 1, 2, true)
                             },1)
                     ,
                     new Question(1,"Какое из этих слов пишется с НЕ слитно?",
                             new Answers[]{
-                                    new Answers("(не)увидев", 0, 3),
-                                    new Answers("(не)нужно", 0, 3),
-                                    new Answers("(не)втерпеж", 1, 3),
-                                    new Answers("(не)спится", 0, 3)
+                                    new Answers("(не)увидев", 0, 3, true),
+                                    new Answers("(не)нужно", 0, 3, true),
+                                    new Answers("(не)втерпеж", 1, 3, true),
+                                    new Answers("(не)спится", 0, 3, true)
                             },1)
             };
         }
