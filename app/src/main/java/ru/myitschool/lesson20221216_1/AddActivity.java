@@ -19,6 +19,7 @@ public boolean isful;
         super.onCreate(savedInstanceState);
         binding = ActivityAddBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        binding.balls.setText("1");
         sc1 = 0;
         isful = false;
         sc2 = 0;

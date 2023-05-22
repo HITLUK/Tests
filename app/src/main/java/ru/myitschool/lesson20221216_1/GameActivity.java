@@ -18,13 +18,14 @@ public class GameActivity extends AppCompatActivity {
     private ActivityGameBinding binding;
     private final Quest quest = new Quest();
     static int count=0;
-
+    private Prefs prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityGameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        prefs = new Prefs(getSharedPreferences(Prefs.REZ,MODE_PRIVATE));
         initQuestion(0);
         binding.number.setText("1/"+quest.getlenght());
 count = 0;
@@ -47,9 +48,13 @@ count = 0;
     private void setPositiveState() {
         binding.number.setText("");
         if(MenuActivity.iscreated) {
-            binding.description.setText("Вы завершили прохождение теста.\nВаш результат- " + quest.getScore() + "/" + quest.getMaxscore() + " (" + (float) quest.getScore() / quest.getMaxscore() * 100 + "%)");
+            float s = (float)(Math.round((float)quest.getScore() * 10000 / quest.getMaxscore()))/100;
+            prefs.setREZ(s);
+            binding.description.setText("Вы завершили прохождение теста.\nВаш результат- " + quest.getScore() + "/" + quest.getMaxscore() + " (" + s + "%)");
         } else {
-            binding.description.setText("Вы завершили прохождение теста.\nВаш результат- " + quest.getScore() + "/3 (" + (float) quest.getScore() / 3 * 100 + "%)");
+            float s = (float)(Math.round((float)quest.getScore() * 10000 / 3))/100;
+            prefs.setREZ(s);
+            binding.description.setText("Вы завершили прохождение теста.\nВаш результат- " + quest.getScore() + "/3 (" + s + "%)");
         }
         fillCloseButton();
     }
@@ -66,7 +71,7 @@ count = 0;
                 binding.buttons,
                 false);
         buttonBinding.getRoot().setText("Выход в главное меню");
-        buttonBinding.getRoot().setOnClickListener(v -> finish());
+        buttonBinding.getRoot().setOnClickListener(v -> startActivity(MenuActivity.getInstance(this)));
         binding.buttons.addView(buttonBinding.getRoot());
 
 

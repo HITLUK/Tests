@@ -31,6 +31,13 @@
         android:layout_height="wrap_content"
         android:text="create"
         android:id="@+id/create"/>
+    <TextView
+
+        android:id="@+id/last"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        tools:ignore="InvalidId" />
 
 
 </LinearLayout>
