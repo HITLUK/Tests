@@ -21,7 +21,7 @@ import ru.myitschool.lesson20221216_1.databinding.ActivityMenuBinding;
 public class MenuActivity extends AppCompatActivity {
     private ActivityMenuBinding binding;
     public static boolean iscreated = false;
-    private Prefs prefs;
+    public static Prefs prefs;
     public static Intent getInstance(Context context) {
         return new Intent(context, MenuActivity.class);
     }

@@ -67,13 +67,13 @@ public class EditActivity extends AppCompatActivity {
             binding.radio1.setChecked(true);
         }
         if (may[1].getScore() != 0) {
-            binding.radio1.setChecked(true);
+            binding.radio2.setChecked(true);
         }
         if (may[2].getScore() != 0) {
-            binding.radio1.setChecked(true);
+            binding.radio3.setChecked(true);
         }
         if (may[3].getScore() != 0) {
-            binding.radio1.setChecked(true);
+            binding.radio4.setChecked(true);
         }
     }
 

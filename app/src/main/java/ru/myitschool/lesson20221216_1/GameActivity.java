@@ -16,7 +16,7 @@ import ru.myitschool.lesson20221216_1.databinding.ItemButtonBinding;
 
 public class GameActivity extends AppCompatActivity {
     private ActivityGameBinding binding;
-    private final Quest quest = new Quest();
+    private final Quest quest = new Quest(this);
     static int count=0;
     private Prefs prefs;
 
