@@ -1,6 +1,7 @@
 package ru.myitschool.lesson20221216_1;
 
-public class Question extends Unit{
+
+public class Question extends Unit {
     private static int id;
     private final int balls;
     private final String name;

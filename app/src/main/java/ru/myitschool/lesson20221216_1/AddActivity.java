@@ -22,21 +22,35 @@ public class AddActivity extends AppCompatActivity {
     private int sc1, sc2, sc3, sc4;
 public boolean isful;
 Prefs prefs;
-    List<String> names = new ArrayList<>(Arrays.asList());
-    List<String> balls1 = new ArrayList<>(Arrays.asList());
-    List<String> Ans1s = new ArrayList<>(Arrays.asList());
-    List<String> Ans2s = new ArrayList<>(Arrays.asList());
-    List<String> Ans3s = new ArrayList<>(Arrays.asList());
-    List<String> Ans4s = new ArrayList<>(Arrays.asList());
-    List<String> Ans1bs = new ArrayList<>(Arrays.asList());
-    List<String> Ans2bs = new ArrayList<>(Arrays.asList());
-    List<String> Ans3bs = new ArrayList<>(Arrays.asList());
-    List<String> Ans4bs = new ArrayList<>(Arrays.asList());
-    List<String> Ans3is = new ArrayList<>(Arrays.asList());
-    List<String> Ans4is = new ArrayList<>(Arrays.asList());
+    List<String> names ;
+    List<String> balls1;
+    List<String> Ans1s ;
+    List<String> Ans2s ;
+    List<String> Ans3s ;
+    List<String> Ans4s ;
+    List<String> Ans1bs;
+    List<String> Ans2bs;
+    List<String> Ans3bs;
+    List<String> Ans4bs;
+    List<String> Ans3is;
+    List<String> Ans4is;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        names = new ArrayList<>();
+        balls1 = new ArrayList<>();
+        Ans1s = new ArrayList<>();
+        Ans2s = new ArrayList<>();
+        Ans3s = new ArrayList<>();
+        Ans4s = new ArrayList<>();
+        Ans1bs = new ArrayList<>();
+        Ans2bs = new ArrayList<>();
+        Ans3bs = new ArrayList<>();
+        Ans4bs = new ArrayList<>();
+        Ans3is = new ArrayList<>();
+        Ans4is = new ArrayList<>();
+
         prefs = new Prefs(getSharedPreferences(prefs.REZ,MODE_PRIVATE));
         super.onCreate(savedInstanceState);
         binding = ActivityAddBinding.inflate(getLayoutInflater());
@@ -128,50 +142,11 @@ Prefs prefs;
             };
             Unit unit = new Question(bals, name, answers, id);
             Reposit.reposit.addUnit(unit);
-            names.add(unit.getName());
-            balls1.add(""+unit.getBalls());
-            Ans1s.add((unit.getAnswers()[0].getName()));
-            Ans2s.add((unit.getAnswers()[1].getName()));
-            Ans3s.add((unit.getAnswers()[2].getName()));
-            Ans4s.add((unit.getAnswers()[3].getName()));
-            Ans1bs.add(unit.getAnswers()[0].getScore()+"");
-            Ans2bs.add(unit.getAnswers()[1].getScore()+"");
-            Ans3bs.add(unit.getAnswers()[2].getScore()+"");
-            Ans4bs.add(unit.getAnswers()[3].getScore()+"");
-            int a =prefs.getCount();
-            a++;
-            prefs.setCount(a);
-            String b = "false";
-            String t = "false";
-            if(unit.getAnswers()[2].isIsreal()) {b = "true";}
-            if(unit.getAnswers()[3].isIsreal()) {t = "true";}
-            Ans3is.add(b);
-            Ans4is.add(t);
-            Gson gson = new Gson();
-            String nammes = gson.toJson(names);
-            String balls = gson.toJson(balls1);
-            String Anss1s = gson.toJson(Ans1s);
-            String Anss2s = gson.toJson(Ans2s);
-            String Anss3s = gson.toJson(Ans3s);
-            String Anss4s = gson.toJson(Ans4s);
-            String Anss1bs = gson.toJson(Ans1bs);
-            String Anss2bs = gson.toJson(Ans2bs);
-            String Anss3bs = gson.toJson(Ans3bs);
-            String Anss4bs = gson.toJson(Ans4bs);
-            String Is3 = gson.toJson(Ans3is);
-            String Is4 = gson.toJson(Ans4is);
-            prefs.setnameq(nammes);
-            prefs.setBalls(balls);
-            prefs.setAns1(Anss1s);
-            prefs.setAns2(Anss2s);
-            prefs.setAns3(Anss3s);
-            prefs.setAns4(Anss4s);
-            prefs.setAns1b(Anss1bs);
-            prefs.setAns2b(Anss2bs);
-            prefs.setAns3b(Anss3bs);
-            prefs.setAns4b(Anss4bs);
-            prefs.setAns3i(Is3);
-            prefs.setAns4i(Is4);
+            if(!prefs.getcr()) {
+                Reposit.reposit.addtoShared(unit);
+            } else {
+                Reposit.reposit.updateShared(unit);
+            }
             clearInput();
         }
     }

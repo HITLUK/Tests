@@ -84,8 +84,7 @@ public class EditActivity extends AppCompatActivity {
         boolean is4 = false;
         if (binding.ans1.getText().toString().isEmpty() ||
                 binding.ans2.getText().toString().isEmpty()  ||
-                (!binding.radio1.isChecked() && !binding.radio2.isChecked()
-                        && !binding.radio2.isChecked() && !binding.radio4.isChecked()) || binding.inputQuest.getText().toString().isEmpty() || binding.balls.getText().toString().isEmpty()) {
+                 binding.inputQuest.getText().toString().isEmpty() || binding.balls.getText().toString().isEmpty()) {
             Toast.makeText(this, "Заполните все поля", Toast.LENGTH_SHORT).show();
         } else {
             if (!binding.ans3.getText().toString().isEmpty()) {is3=true;}
